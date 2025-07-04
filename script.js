@@ -9,14 +9,16 @@ const diceEl = document.getElementById('dice');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 const btnNew = document.querySelector('.btn--new');
-let scores, currentScore, activePlayer, playing;
+let score0, score1, currentScore, activePlayer, playing;
 
 btnNew.addEventListener('click', init);
 btnRoll.addEventListener('click', roll);
 btnHold.addEventListener('click', hold);
 
 function init() {
-    scores = [0, 0];
+    score0=0;
+    score1=0;
+
     currentScore = 0;
     activePlayer = 0;
     playing = true;
@@ -50,21 +52,37 @@ function roll() {
 function switchPlayer() {
     currentScore = 0;
     document.getElementById('current--' + activePlayer).textContent = currentScore;
-    activePlayer = activePlayer === 0 ? 1 : 0;
+    if(activePlayer === 0){
+        activePlayer=1;
+    }else{
+        activePlayer=0;
+    }
     player0El.classList.toggle('player--active');
     player1El.classList.toggle('player--active');  
 }
 
 function hold(){
+    let currentScore=0;
     if(playing){
-        scores[activePlayer]+= currentScore;
-        document.getElementById('score--'+activePlayer).textContent = scores[activePlayer];
-        if(scores[activePlayer]>=20){
+        if(activePlayer === 0){
+            score0 += currentScore;
+            tmpScore = score0;
+        }
+        else{
+            score1 += currentScore;
+            tmpScore = score1;
+        }
+        document.getElementById('score--' + activePlayer).textContent = tmpScore;
+        
+        document.getElementById('current--' + activePlayer).textContent = currentScore;
+        diceEl.classList.add('hidden');
+        
+        if( tmpScore>= 20){
             playing = false;
             diceEl.classList.add('hidden');
             document.querySelector('.player--'+activePlayer).classList.add('player--winner');
             document.querySelector('.player--'+activePlayer).classList.remove('player--active');
-            document.getElemmentById('name--'+activePlayer).textContent="Winner!";
+            document.getElementById('name--'+activePlayer).textContent="Winner!";
         }else{
             switchPlayer();
         }
