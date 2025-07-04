@@ -59,23 +59,24 @@ function switchPlayer() {
 }
 
 function hold(){
-    do{
-        switch(activePlayer){
-            case 0:
-                score0+=currentScore;
-                score0El.textContent=score0;
-                currentScore=0;
-                break;
-            case 1:
-                score1+=currentScore;
-                score1El.textContent=score1;
-                currentScore=0;
-                break;
-            default:
-                switchPlayer();
-        }
-
-    }while(score0<100 && score1<100);
+    switch(activePlayer) {
+        case 0:
+            score0 += currentScore;
+            score0El.textContent = score0;
+            break;
+        case 1:
+            score1 += currentScore;
+            score1El.textContent = score1;
+            break;
+    }
+    if (score0 >= 20 || score1 >= 20) {
+        playing = false;
+        diceEl.classList.add('hidden');
+        document.querySelector('.player--' + activePlayer).classList.add('player--winner');
+        document.querySelector('.player--' + activePlayer).classList.remove('player--active');
+    } else {
+        switchPlayer();
+    }
 }
 
 init();
