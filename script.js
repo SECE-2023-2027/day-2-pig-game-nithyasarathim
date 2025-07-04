@@ -18,16 +18,13 @@ btnHold.addEventListener('click', hold);
 function init() {
     score0=0;
     score1=0;
-
     currentScore = 0;
     activePlayer = 0;
     playing = true;
-
     score0El.textContent = 0;
     score1El.textContent = 0;
     current0El.textContent = 0;
     current1El.textContent = 0;
-
     diceEl.classList.add('hidden');
     player0El.classList.remove('player--winner');
     player1El.classList.remove('player--winner');
@@ -37,7 +34,7 @@ function init() {
 
 function roll() {
     if (playing){
-        const dice = Math.trunc(Math.random()*6)+1;
+        const dice =  Math.trunc(Math.random()*6)+1;
         diceEl.classList.remove('hidden');
         diceEl.src='assets/dice-'+dice+'.png';
         if(dice !== 1){
@@ -62,31 +59,23 @@ function switchPlayer() {
 }
 
 function hold(){
-    let currentScore=0;
-    if(playing){
-        if(activePlayer === 0){
-            score0 += currentScore;
-            tmpScore = score0;
+    do{
+        switch(activePlayer){
+            case 0:
+                score0+=currentScore;
+                score0El.textContent=score0;
+                currentScore=0;
+                break;
+            case 1:
+                score1+=currentScore;
+                score1El.textContent=score1;
+                currentScore=0;
+                break;
+            default:
+                switchPlayer();
         }
-        else{
-            score1 += currentScore;
-            tmpScore = score1;
-        }
-        document.getElementById('score--' + activePlayer).textContent = tmpScore;
-        
-        document.getElementById('current--' + activePlayer).textContent = currentScore;
-        diceEl.classList.add('hidden');
-        
-        if( tmpScore>= 20){
-            playing = false;
-            diceEl.classList.add('hidden');
-            document.querySelector('.player--'+activePlayer).classList.add('player--winner');
-            document.querySelector('.player--'+activePlayer).classList.remove('player--active');
-            document.getElementById('name--'+activePlayer).textContent="Winner!";
-        }else{
-            switchPlayer();
-        }
-    }
+
+    }while(score0<100 && score1<100);
 }
 
 init();
