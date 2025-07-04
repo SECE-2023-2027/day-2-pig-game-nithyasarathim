@@ -1,134 +1,133 @@
-.dashboard{
-    background: radial-gradient(circle at top left, rgb(255, 50, 50), #800080);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-}
-
-#main-container{
-    width: 60%;
-    height: 80%;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row;
-    gap: 20%;
-}
-
-.player{
-    width: 50%;
-    height: 100%;
+body {
+    background-color: rgb(187, 47, 58);
+    overflow: hidden;
+  }
+  
+  .container {
     display: flex;
     flex-direction: column;
-    justify-items: center;
+    justify-content: space-between;
     align-items: center;
-}
-
-
-.player--active{
-    background-color: #f48fb1;
-    border-radius: 20px;
-}
-
-.relative{
-    position: relative;
-}
-
-.absolute{
-    position: absolute;
-}
-
-.dice{
-    width: 125px;
-    height: 125px;
-    display: flex;  
-    justify-content: center;
-    align-items: center;
-    left:46%;
-    top: 35%;
-    border: #ffffff;
-    padding: 3px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    background-color: #ffffff;
-}
-
-.name{
-    font-size: 50px;
-    margin-top: 70px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-
-.score{
-    font-size: 90px;
-    top:15%;
-    color: rgb(246, 0, 82);
-}
-
-.btn{
-    width: 100px;
-    height: 40px;
-    background-color: #ffffff;
-    border-radius: 10px;
     border: none;
-    font-size: 14px;
-    color: black;
-    cursor: pointer;
+    height: 550px;
+    width: 500px;
+    padding: 20px;
+  }
+  
+  .leftContainer {
+    background-color: rgb(220, 176, 189); 
+    border-radius: 20px 0px 0px 20px;
+  }
+  
+  .rightContainer {
+    background-color: rgb(188, 124, 151); 
+    border-radius: 0px 20px 20px 0px;
+  }
+  
+  .playersBox {
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.btn--new{
-    top:15%;
-    left: 45%;
-    width: 150px;
-}
-
-.btn--hold{
-    top: 80%;
-    left: 45%;
-    width: 150px;
-}
-
-.btn--roll{
-    top: 70%;
-    left: 45%;
-    width: 150px;
-}
-
-.current{
-    font-size: 25px;
-    width: 200px;
-    height: 100px;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    top: 60%;
-    flex-direction: column;
-    border: 2px solid #ffffff;
+    font-family: 'Poppins', sans-serif;
+    height: 95vh;
+  }
+  
+  .playerInfo {
+    margin-top: 40px;
+  }
+  
+  .playerName {
+    margin: 10px;
+    font-size: 40px;
+  }
+  
+  .totalScore {
+    text-align: center;
+    font-size: 60px;
+    margin: 10px;
+    color: rgb(205, 50, 97);
+  }
+  
+  .gameInfo {
+    margin-bottom: 70px;
+    height: 120px;
+    width: 190px;
+    padding: 10px;
     border-radius: 10px;
-    background-color: #ff004cb1;
-}
-
-.current-label{
-    margin-top: 60px;
+    color: white;
     font-size: 20px;
-}
-
-.current-score{
-    font-size: 50px;
-    color: #ffffff;
-    margin-top: -30px    
-}
-
-.hidden{
-    display: none;
-}
-
-.player--winner{
-    background-color: #FCC201;
-    color: black ;
-}
+  }
+  /* 
+  .leftGameInfo {
+    background-color: rgb(199, 54, 95);
+  }
+  
+  .rightGameInfo {
+    background-color: rgb(195, 69, 107);
+  } */
+  
+  .current {
+    text-align: center;
+    margin: 15px 10px;
+  }
+  
+  .currentScore {
+    font-size: 30px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .middleContainer {
+    position: relative;
+    top: -600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .middleBtn {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    height: 45px;
+    width: 160px;
+    border: none;
+    border-radius: 35px;
+    padding: 10px;
+    font-size: 17px;
+  }
+  
+  .rollDiceBtn {
+    width: 200px;
+    background-color: rgba(123, 255, 123, 0.8);
+    margin-bottom: 20px;
+  }
+  
+  .holdBtn {
+    background-color: antiquewhite;
+  }
+  
+  .newGameBtn {
+    background-color: rgb(104, 85, 104);
+    color: white;
+  }
+  
+  .playContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 130px;
+  }
+  
+  .diceImg {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
